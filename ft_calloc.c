@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 15:22:20 by llai              #+#    #+#             */
-/*   Updated: 2023/11/01 21:12:22 by llai             ###   ########.fr       */
+/*   Created: 2023/11/01 17:58:19 by llai              #+#    #+#             */
+/*   Updated: 2023/11/01 18:33:40 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdlib.h>
 
-#include <stddef.h>
-
-static int	ft_strlen(const char *str)
+static void	ft_bzero(void *s, size_t n)
 {
-	int	count;
+	unsigned char	*ptr;
 
-	count = 0;
-	while (*str++ != '\0')
-		count++;
-	return (count);
+	ptr = (unsigned char*)s;
+	while (n-- > 0)
+		*ptr++ = '\0';
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char	*dst_ptr;
-	const char	*src_ptr;
-
-	dst_ptr = dst;
-	src_ptr = src;
-	while (size - 1 > 0)
-	{
-		*dst_ptr++ = *src_ptr++;
-		size--;
-	}
-	*dst_ptr = '\0';
-	return (ft_strlen(src));
+	void	*ptr;
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }

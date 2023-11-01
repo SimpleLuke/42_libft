@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 15:22:20 by llai              #+#    #+#             */
-/*   Updated: 2023/11/01 21:12:22 by llai             ###   ########.fr       */
+/*   Created: 2023/11/01 10:34:07 by llai              #+#    #+#             */
+/*   Updated: 2023/11/01 10:38:45 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-static int	ft_strlen(const char *str)
+char	*ft_strrchr(const char *s, int c)
 {
-	int	count;
+	char	*ptr;
 
-	count = 0;
-	while (*str++ != '\0')
-		count++;
-	return (count);
-}
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
-{
-	char	*dst_ptr;
-	const char	*src_ptr;
-
-	dst_ptr = dst;
-	src_ptr = src;
-	while (size - 1 > 0)
+	ptr = NULL;
+	while (*s != '\0')
 	{
-		*dst_ptr++ = *src_ptr++;
-		size--;
+		if (*s == c)
+			ptr = (char *)s;
+		s++;
 	}
-	*dst_ptr = '\0';
-	return (ft_strlen(src));
+	if (c == '\0' && *s == '\0')
+		ptr = (char *)s;
+	return (ptr);
 }

@@ -6,7 +6,7 @@
 #    By: llai <llai@student.42london.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 09:38:33 by llai              #+#    #+#              #
-#    Updated: 2023/10/31 17:26:45 by llai             ###   ########.fr        #
+#    Updated: 2023/11/01 20:50:13 by llai             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,20 @@ SRC = ft_isalpha \
       ft_bzero \
       ft_memmove \
       ft_strlcpy \
-      ft_strlcat
+      ft_strlcat \
+      ft_toupper \
+      ft_tolower \
+      ft_strchr \
+      ft_strrchr \
+      ft_strncmp \
+      ft_memchr \
+      ft_strnstr \
+      ft_atoi \
+      ft_calloc \
+      ft_strdup \
+      ft_substr \
+      ft_strjoin \
+      ft_strtrim
 #BONUS_SRC = 
 SRCS = $(addsuffix .c, $(SRC))
 OBJS = $(addsuffix .o, $(SRC))
@@ -32,14 +45,12 @@ OBJS = $(addsuffix .o, $(SRC))
 #BONUS_OBJS = $(addsuffix .o, $(BONUS_SRC))
 
 #.c.o: $(SRCS) $(BONUS_SRCS)
-%.o: %.c $(SRCS)
+%.o: %.c 
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJS)
 	$(AR) $@ $^
 
-test: $(OBJS)
-	$(AR) $(NAME) $^
 #bonus:$(OBJS) $(BONUS_OBJS)
 	#$(AR) $(NAME) $^
 

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 15:22:20 by llai              #+#    #+#             */
-/*   Updated: 2023/11/01 21:12:22 by llai             ###   ########.fr       */
+/*   Created: 2023/11/01 13:33:45 by llai              #+#    #+#             */
+/*   Updated: 2023/11/01 15:13:35 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <stddef.h>
+#include <stdio.h>
 
 static int	ft_strlen(const char *str)
 {
@@ -22,18 +22,35 @@ static int	ft_strlen(const char *str)
 	return (count);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char	*dst_ptr;
-	const char	*src_ptr;
+	int	i;
+	int	j;
+	size_t	count;
 
-	dst_ptr = dst;
-	src_ptr = src;
-	while (size - 1 > 0)
+	i = 0;
+	j = 0;
+	count = 1;
+	if (*little == '\0')
+		return (char *)(big);
+	while (big[i] != '\0' && len >= count)
 	{
-		*dst_ptr++ = *src_ptr++;
-		size--;
+		if (big[i] == little[j])
+		{
+
+			while (big[i] == little[j] && len >= count)
+			{
+				j++;
+				i++;
+				if (little[j] == '\0')
+					return (char *)(big + (count - ft_strlen(little)));
+				count++;
+			}
+			j = 0;
+		}
+		else
+			i++;
+		count++;
 	}
-	*dst_ptr = '\0';
-	return (ft_strlen(src));
+	return (NULL);
 }
