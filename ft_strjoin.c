@@ -6,7 +6,7 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:39:47 by llai              #+#    #+#             */
-/*   Updated: 2023/11/01 20:15:12 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/02 20:41:14 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -21,14 +21,13 @@ static int	ft_strlen(char const *str)
 	return (count);
 }
 
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*ptr;
-	int	s1_len;
-	int	s2_len;
-	int	i;
-	
+	int		s1_len;
+	int		s2_len;
+	int		i;
+
 	i = 0;
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
@@ -41,5 +40,4 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		ptr[i++] = *s2++;
 	ptr[i] = '\0';
 	return (ptr);
-
 }

@@ -6,51 +6,33 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 13:33:45 by llai              #+#    #+#             */
-/*   Updated: 2023/11/01 15:13:35 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/02 21:03:51 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
-#include <stdio.h>
 
-static int	ft_strlen(const char *str)
-{
-	int	count;
-
-	count = 0;
-	while (*str++ != '\0')
-		count++;
-	return (count);
-}
+#include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
-	int	j;
-	size_t	count;
+	size_t	i;
+	size_t	j;
+	size_t	little_len;
 
+	little_len = ft_strlen(little);
+	if (big == little || *little == '\0')
+		return ((char *)(big));
 	i = 0;
-	j = 0;
-	count = 1;
-	if (*little == '\0')
-		return (char *)(big);
-	while (big[i] != '\0' && len >= count)
+	while (big[i] != '\0' && len > i)
 	{
-		if (big[i] == little[j])
+		j = 0;
+		while (big[i + j] != '\0' && little[j] != '\0'
+			&& (i + j) < len && big[i + j] == little[j])
 		{
-
-			while (big[i] == little[j] && len >= count)
-			{
-				j++;
-				i++;
-				if (little[j] == '\0')
-					return (char *)(big + (count - ft_strlen(little)));
-				count++;
-			}
-			j = 0;
+			j++;
+			if (j == little_len)
+				return ((char *)(big + i));
 		}
-		else
-			i++;
-		count++;
+		i++;
 	}
 	return (NULL);
 }

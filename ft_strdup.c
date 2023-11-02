@@ -6,7 +6,7 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 18:35:44 by llai              #+#    #+#             */
-/*   Updated: 2023/11/01 21:13:25 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/02 20:40:04 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -14,7 +14,7 @@
 
 char	*ft_strdup(const char *s)
 {
-	int	len;
+	int		len;
 	char	*ptr;
 
 	len = ft_strlen(s) + 1;

@@ -6,7 +6,7 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 09:58:26 by llai              #+#    #+#             */
-/*   Updated: 2023/11/01 10:29:21 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/02 20:39:49 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -16,11 +16,10 @@ char	*ft_strchr(const char *s, int c)
 	while (*s != '\0')
 	{
 		if (*s == c)
-			return (char *)(s);
+			return ((char *)(s));
 		s++;
 	}
 	if (*s == '\0' && c == '\0')
-		return (char *)(s);
+		return ((char *)(s));
 	return (NULL);
 }
-

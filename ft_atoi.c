@@ -6,10 +6,11 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:16:43 by llai              #+#    #+#             */
-/*   Updated: 2023/11/01 17:01:42 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/02 20:24:54 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
+
 static int	ft_isdigit(char c)
 {
 	if (c >= '0' && c <= '9')
@@ -20,11 +21,11 @@ static int	ft_isdigit(char c)
 int	ft_atoi(const char *nptr)
 {
 	int	num;
-	int	isNeg;
+	int	is_neg;
 	int	i;
 
 	num = 0;
-	isNeg = 1;
+	is_neg = 1;
 	i = 0;
 	while (nptr[i] && (nptr[i] == ' ' || nptr[i] == '\t'
 			|| nptr[i] == '\n' || nptr[i] == '\v'
@@ -34,7 +35,7 @@ int	ft_atoi(const char *nptr)
 		i++;
 	else if (nptr[i] == '-')
 	{
-		isNeg *= -1;
+		is_neg *= -1;
 		i++;
 	}
 	while (ft_isdigit(nptr[i]))
@@ -42,5 +43,5 @@ int	ft_atoi(const char *nptr)
 		num = (num * 10) + (nptr[i] - '0');
 		i++;
 	}
-	return (num * isNeg);
+	return (num * is_neg);
 }

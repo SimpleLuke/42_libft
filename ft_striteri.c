@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 11:04:04 by llai              #+#    #+#             */
-/*   Updated: 2023/11/02 21:15:24 by llai             ###   ########.fr       */
+/*   Created: 2023/11/02 16:37:15 by llai              #+#    #+#             */
+/*   Updated: 2023/11/02 16:46:07 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
- *  Description:
- *  It checks if c is ascii character.
- *
- *  Return value:
- *  Non-zero if c is ascii character, zero if not.
- *
- */
-
-int	ft_isascii(int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	if (c == 0)
-		return (1);
-	if (c > 0 && c <= 127)
-		return (c);
-	return (0);
+	int	i;
+
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		f(i, &(s[i]));
+		i++;
+	}
 }

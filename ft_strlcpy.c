@@ -6,7 +6,7 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:22:20 by llai              #+#    #+#             */
-/*   Updated: 2023/11/01 21:12:22 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/02 20:42:52 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_strlen(const char *str)
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	char	*dst_ptr;
+	char		*dst_ptr;
 	const char	*src_ptr;
 
 	dst_ptr = dst;

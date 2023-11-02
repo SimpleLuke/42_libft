@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 11:04:04 by llai              #+#    #+#             */
-/*   Updated: 2023/11/02 21:15:24 by llai             ###   ########.fr       */
+/*   Created: 2023/11/02 18:00:16 by llai              #+#    #+#             */
+/*   Updated: 2023/11/02 18:00:17 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
- *  Description:
- *  It checks if c is ascii character.
- *
- *  Return value:
- *  Non-zero if c is ascii character, zero if not.
- *
- */
+#include "libft.h"
 
-int	ft_isascii(int c)
+void	ft_putendl_fd(char *s, int fd)
 {
-	if (c == 0)
-		return (1);
-	if (c > 0 && c <= 127)
-		return (c);
-	return (0);
+	if (fd < 0)
+		return ;
+	while (*s != '\0')
+	{
+		write(fd, s, 1);
+		s++;
+	}
+	write(fd, "\n", 1);
 }

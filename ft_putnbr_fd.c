@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 11:04:04 by llai              #+#    #+#             */
-/*   Updated: 2023/11/02 21:15:24 by llai             ###   ########.fr       */
+/*   Created: 2023/11/02 18:08:15 by llai              #+#    #+#             */
+/*   Updated: 2023/11/02 18:21:52 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-/*
- *  Description:
- *  It checks if c is ascii character.
- *
- *  Return value:
- *  Non-zero if c is ascii character, zero if not.
- *
- */
-
-int	ft_isascii(int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (c == 0)
-		return (1);
-	if (c > 0 && c <= 127)
-		return (c);
-	return (0);
+	if (fd < 0)
+		return ;
+	if (n == INT_MIN)
+	{
+		ft_putchar_fd('-', fd);
+		n /= -10;
+		ft_putnbr_fd(n, fd);
+		ft_putchar_fd('8', fd);
+	}
+	else if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = -n;
+		ft_putnbr_fd(n, fd);
+	}
+	else if (n > 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	else
+		ft_putchar_fd(n + '0', fd);
 }

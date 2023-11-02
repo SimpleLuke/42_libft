@@ -6,23 +6,18 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:51:13 by llai              #+#    #+#             */
-/*   Updated: 2023/10/31 10:56:15 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/02 21:14:21 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-static int	ft_isalpha(int c)
-{
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (c);
-	return (0);
-}
-
-static int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (c);
-	return (0);
-}
+#include "libft.h"
+/*
+ *  Description:
+ *  It checks if c is alphabetic or digit.
+ *
+ *  Return value:
+ *  Non-zero if c is alphabetic or digit, zero if not.
+ *
+ */
 
 int	ft_isalnum(int c)
 {

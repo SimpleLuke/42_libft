@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 11:04:04 by llai              #+#    #+#             */
-/*   Updated: 2023/11/02 21:15:24 by llai             ###   ########.fr       */
+/*   Created: 2023/11/02 16:00:13 by llai              #+#    #+#             */
+/*   Updated: 2023/11/02 20:43:29 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-/*
- *  Description:
- *  It checks if c is ascii character.
- *
- *  Return value:
- *  Non-zero if c is ascii character, zero if not.
- *
- */
-
-int	ft_isascii(int c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	if (c == 0)
-		return (1);
-	if (c > 0 && c <= 127)
-		return (c);
-	return (0);
+	int		i;
+	char	*result;
+
+	i = 0;
+	if (!s)
+		return (ft_strdup(""));
+	else if (!f)
+		return (ft_strdup(s));
+	result = malloc((ft_strlen(s) + 1) * sizeof(char));
+	while (s[i] != '\0')
+	{
+		result[i] = f(i, s[i]);
+		i++;
+	}
+	return (result);
 }

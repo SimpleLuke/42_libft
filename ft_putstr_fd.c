@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 11:04:04 by llai              #+#    #+#             */
-/*   Updated: 2023/11/02 21:15:24 by llai             ###   ########.fr       */
+/*   Created: 2023/11/02 17:11:55 by llai              #+#    #+#             */
+/*   Updated: 2023/11/02 17:27:05 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-/*
- *  Description:
- *  It checks if c is ascii character.
- *
- *  Return value:
- *  Non-zero if c is ascii character, zero if not.
- *
- */
-
-int	ft_isascii(int c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (c == 0)
-		return (1);
-	if (c > 0 && c <= 127)
-		return (c);
-	return (0);
+	if (fd < 0)
+		return ;
+	while (*s != '\0')
+	{
+		write(fd, s, 1);
+		s++;
+	}
 }

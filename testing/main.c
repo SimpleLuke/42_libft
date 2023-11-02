@@ -6,7 +6,7 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 09:40:10 by llai              #+#    #+#             */
-/*   Updated: 2023/11/01 22:07:33 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/02 21:42:08 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stddef.h>
 #include <string.h>
 #include <limits.h>
+#include <fcntl.h>
 
 void	test_isalpha(void)
 {
@@ -108,9 +109,9 @@ void	test_strlen(void)
 	printf("\n");
 	char	str[] = "Hello";
 	if (ft_strlen(str) == strlen(str))
-		printf("%s is %ld long.\n", str, ft_strlen(str));
+		printf("PASS:%s is %ld long.\n", str, ft_strlen(str));
 	else
-		printf("Expect: %s is %ld long, but got %ld.\n", str, strlen(str), ft_strlen(str));
+		printf("FAIL:Expect: %s is %ld long, but got %ld.\n", str, strlen(str), ft_strlen(str));
 	printf("\n");
 }
 
@@ -127,9 +128,9 @@ void	test_memset(void)
 	result1 = memset(str, '.', 5 * sizeof(char));
 	result2 = ft_memset(str2, '.', 5 * sizeof(char));
 	if (strcmp(result1, result2) == 0)
-		printf("Replace 5 dot over Hello => %s\n", result2);
+		printf("PASS:Replace 5 dot over Hello =>%s\n", result2);
 	else
-		printf("Expected %s, but got %s\n", result1, result2);
+		printf("FAIL:Expected %s, but got %s\n", result1, result2);
 	printf("\n");
 }
 
@@ -137,12 +138,49 @@ void	test_bzero(void)
 {
 	printf("/--------test ft_bzero--------/\n");
 	printf("\n");
-	char	str[] = "Hello how are you?";
+	char	str1[] = "Hello how are you?";
+	char	str2[] = "Hello how are you?";
 
-	printf("BEFORE:%s\n", str);
-	ft_bzero(str, 5);
-	for(int i = 0; i < 6; i++)
-		printf("%d:AFTER:%s\n", i, str + i);
+	printf("BEFORE:%s\n", str1);
+	ft_bzero(str1, 5);
+	bzero(str2, 5);
+	if (!strcmp(str1, str2))
+		printf("PASS: with 5 zero=>%s\n", str1 + 5);
+	else
+		printf("FAIL: after 5 pointers %s\n", str1 + 5);
+	printf("\n");
+}
+
+void	test_memcpy(void)
+{
+	printf("/--------test ft_memcpy--------/\n");
+	printf("\n");
+	char	dest1[20] = "Hello";
+	char	dest2[20] = "Hello";
+	char	*result1;
+	char	*result2;
+
+
+	result1 = memcpy(dest1, "Bye", 3);
+	result2 = ft_memcpy(dest2, "Bye", 3);
+	if (!strcmp(result1, result2))
+		printf("PASS: Expected %s, got %s\n", dest1, dest2);
+	else
+		printf("FAIL: Expected %s, got %s\n", dest1, dest2);
+	printf("\n");
+	result1 = memcpy(dest1, "Bye123", 6);
+	result2 = ft_memcpy(dest2, "Bye123", 6);
+	if (!strcmp(result1, result2))
+		printf("PASS: Expected %s, got %s\n", dest1, dest2);
+	else
+		printf("FAIL: Expected %s, got %s\n", dest1, dest2);
+	printf("\n");
+	result1 = memcpy(dest1, "Bye123", 0);
+	result2 = ft_memcpy(dest2, "Bye123", 0);
+	if (!strcmp(result1, result2))
+		printf("PASS: Expected %s, got %s\n", dest1, dest2);
+	else
+		printf("FAIL: Expected %s, got %s\n", dest1, dest2);
 	printf("\n");
 }
 
@@ -150,7 +188,6 @@ void	test_memmove(void)
 {
 	printf("/--------test ft_memmove--------/\n");
 	printf("\n");
-	//char		dest[] = "old";
 	//const char	src[] = "newstring";
 	char	src[] = "newstring";
 	char	*dest = src + 5;
@@ -168,6 +205,8 @@ void	test_memmove(void)
 	memmove(dest2, src2, 3);
 	printf("AFTER dest = %s, src = %s\n", dest2, src2);
 	
+	if (!strcmp(dest, dest2) && !strcmp(src, src2))
+		printf("PASS!\n");
 	printf("\n");
 }
 
@@ -179,10 +218,16 @@ void	test_strlcpy(void)
 	char		dest[] = "oldstring here";
 	const char	src[] = "newstring";
 	size_t		result;
+	char		dest2[] = "oldstring here";
+	const char	src2[] = "newstring";
+	size_t		result2;
 
 	printf("BEFORE dest = %s, src = %s\n", dest, src);
 	result = ft_strlcpy(dest, src, 10);
+	result2 = strlcpy(dest2, src2, 10);
 	printf("AFTER dest = %s, src = %s, return %ld\n", dest, src, result);
+	if (result == result2)
+		printf("PASS\n");
 	printf("\n");
 }
 
@@ -198,15 +243,28 @@ void	test_strlcat(void)
 	const char	src2[] = "newstring";
 	size_t		result2;
 
+	char		dest3[23] = "oldstring here";
+	const char	src3[] = "newstring";
+	size_t		result3;
+	char		dest4[23] = "oldstring";
+	const char	src4[] = "newstring";
+	size_t		result4;
+
 	printf("NOT ENGOUGH BUFFER\n");
 	printf("BEFORE dest = %s, src = %s\n", dest, src);
 	result = ft_strlcat(dest, src, 7);
+	result3 = ft_strlcat(dest3, src3, 7);
 	printf("AFTER dest = %s, src = %s, return %ld\n", dest, src, result);
+	if (result == result3)
+		printf("PASS\n");
 
 	printf("ENGOUGH BUFFER\n");
 	printf("BEFORE dest = %s, src = %s\n", dest2, src2);
 	result2 = ft_strlcat(dest2, src2, 23);
+	result4 = ft_strlcat(dest4, src4, 23);
 	printf("AFTER dest = %s, src = %s, return %ld\n", dest2, src2, result2);
+	if (result2 == result4)
+		printf("PASS\n");
 	printf("\n");
 }
 
@@ -218,9 +276,18 @@ void	test_toupper(void)
 	char	c2 = '0';
 	char	c3 = 'K';
 
-	printf("Char %c becomes %c\n", c1, ft_toupper(c1));
-	printf("Char %c becomes %c\n", c3, ft_toupper(c3));
-	printf("Char %c becomes %c\n", c2, ft_toupper(c2));
+	if (ft_toupper(c1) == toupper(c1))
+		printf("PASS:Char %c becomes %c\n", c1, ft_toupper(c1));
+	else
+		printf("FAIL: Expected %c, got %c\n", toupper(c1), ft_toupper(c1));
+	if (ft_toupper(c2) == toupper(c2))
+		printf("PASS:Char %c becomes %c\n", c2, ft_toupper(c2));
+	else
+		printf("FAIL: Expected %c, got %c\n", toupper(c2), ft_toupper(c2));
+	if (ft_toupper(c3) == toupper(c3))
+		printf("PASS:Char %c becomes %c\n", c3, ft_toupper(c3));
+	else
+		printf("FAIL: Expected %c, got %c\n", toupper(c3), ft_toupper(c3));
 	printf("\n");
 }
 
@@ -232,9 +299,18 @@ void	test_tolower(void)
 	char	c2 = '0';
 	char	c3 = 'K';
 
-	printf("Char %c becomes %c\n", c1, ft_tolower(c1));
-	printf("Char %c becomes %c\n", c3, ft_tolower(c3));
-	printf("Char %c becomes %c\n", c2, ft_tolower(c2));
+	if (ft_tolower(c1) == tolower(c1))
+		printf("PASS:Char %c becomes %c\n", c1, ft_tolower(c1));
+	else
+		printf("FAIL: Expected %c, got %c\n", tolower(c1), ft_tolower(c1));
+	if (ft_tolower(c2) == tolower(c2))
+		printf("PASS:Char %c becomes %c\n", c2, ft_tolower(c2));
+	else
+		printf("FAIL: Expected %c, got %c\n", tolower(c2), ft_tolower(c2));
+	if (ft_tolower(c3) == tolower(c3))
+		printf("PASS:Char %c becomes %c\n", c3, ft_tolower(c3));
+	else
+		printf("FAIL: Expected %c, got %c\n", tolower(c3), ft_tolower(c3));
 	printf("\n");
 }
 
@@ -314,20 +390,24 @@ void	test_strncmp(void)
 	char	str2[] = "Hello456";
 	int	result1;
 	int	result2;
+	int	result3;
+	int	result4;
 
 	printf("Comparing %s and %s\n", str1, str2);
 	result1 = ft_strncmp(str1, str2, 5);
 	result2 = ft_strncmp(str1, str2, 6);
+	result3 = strncmp(str1, str2, 5);
+	result4 = strncmp(str1, str2, 6);
 
 	printf("5 bytes\n");
-	if (result1 == 0)
+	if (result1 == 0 && result1 == result3)
 		printf("PASS: they are equal.\n");
 	else if (result1 > 0)
 		printf("FAIL: %s is greater than %s\n", str1, str2);
 	else
 		printf("FAIL: %s is less than %s\n", str1, str2);
 	printf("6 bytes\n");
-	if (result2 < 0)
+	if (result2 < 0 && result2 == result4)
 		printf("PASS: %s is less than %s\n", str1, str2);
 	else if (result2 > 0)
 		printf("FAIL: %s is greater than %s\n", str1, str2);
@@ -339,7 +419,7 @@ void	test_memchr(void)
 {
 	printf("/--------test ft_memchr--------/\n");
 	printf("\n");
-	const char	str[] = "Hello";
+	const char	str[] = "Hello\0A";
 	char	*result1;
 	char	*result2;
 
@@ -355,6 +435,14 @@ void	test_memchr(void)
 	printf("Check the \\0 occurence\n");
 	result1 = memchr(str, '\0', 6);
 	result2 = ft_memchr(str, '\0', 6);
+	if (strcmp(result1, result2) == 0)
+		printf("PASS: Expected %s, got %s.\n", result1, result2);
+	else
+		printf("FAIL: Expected %s, got %s.\n", result1, result2);
+	printf("\n");
+	printf("Check the A occurence\n");
+	result1 = memchr(str, 'A', 7);
+	result2 = ft_memchr(str, 'A', 7);
 	if (strcmp(result1, result2) == 0)
 		printf("PASS: Expected %s, got %s.\n", result1, result2);
 	else
@@ -459,11 +547,19 @@ void	test_calloc(void)
 	printf("/--------test ft_calloc--------/\n");
 	printf("\n");
 	int	*ptr;
+	int	*ptr2;
 
 	ptr = ft_calloc(8, sizeof(int));
+	ptr2 = calloc(8, sizeof(int));
 	for (int i = 0; i < 8; i++)
-		printf("%d:%d\n", i, ptr[i]);
+	{
+		if (ptr[i] == ptr2[i])
+			printf("PASS:%d:%d\n", i, ptr[i]);
+		else
+			printf("FAIL: Expected %d, but got %d\n", ptr2[i], ptr[i]);
+	}
 	free(ptr);
+	free(ptr2);
 	printf("\n");
 }
 
@@ -574,6 +670,187 @@ void	test_strtrim(void)
 
 }
 
+void	test_split(void)
+{
+	printf("/--------test ft_split--------/\n");
+	printf("\n");
+	char	str1[] = "How are you?";
+	char	str2[] = "How?";
+	char	str3[] = "      ";
+	char	**arr;
+
+	printf("----- Split \"How are you?\" with space ----- \n");
+	arr = ft_split(str1, ' ');
+	for (int i = 0; arr[i] != NULL; i++)
+		printf("%d: %s\n", i, arr[i]);
+	free(arr);
+	printf("\n");
+	printf("----- Split \"How are you?\" with empty string ----- \n");
+	arr = ft_split(str1, '\0');
+	for (int i = 0; arr[i] != NULL; i++)
+		printf("%d: %s\n", i, arr[i]);
+	free(arr);
+	printf("\n");
+	printf("----- Split \"How?\" with empty string ----- \n");
+	arr = ft_split(str2, '\0');
+	for (int i = 0; arr[i] != NULL; i++)
+		printf("%d: %s\n", i, arr[i]);
+	free(arr);
+	printf("\n");
+	printf("----- Split \"??How?\" with ? ----- \n");
+	arr = ft_split(str2, '?');
+	for (int i = 0; arr[i] != NULL; i++)
+		printf("%d: %s\n", i, arr[i]);
+	free(arr);
+	printf("\n");
+	printf("----- Split \"    \" with space ----- \n");
+	arr = ft_split(str3, ' ');
+	if (!arr[0])
+		printf("Pass: Expected Null, got %s\n", arr[0]);
+	else
+		printf("Fail: Expected Null, got %s\n", arr[0]);
+	free(arr);
+	printf("\n");
+}
+
+void	test_itoa(void)
+{
+	printf("/--------test ft_itoa--------/\n");
+	printf("\n");
+	char	*result;
+
+	printf("-----Check -2147483648-----\n");
+	result = ft_itoa(INT_MIN);
+	if (!strcmp("-2147483648", result))
+		printf("PASS: Expected -2147483648, got %s\n", result);
+	else
+		printf("FAIL: Expected -2147483648, got %s\n", result);
+	free(result);
+	printf("\n");
+	printf("-----Check 2147483647-----\n");
+	result = ft_itoa(INT_MAX);
+	if (!strcmp("2147483647", result))
+		printf("PASS: Expected 2147483647, got %s\n", result);
+	else
+		printf("FAIL: Expected 2147483647, got %s\n", result);
+	free(result);
+	printf("\n");
+	printf("-----Check -32 -----\n");
+	result = ft_itoa(-32);
+	if (!strcmp("-32", result))
+		printf("PASS: Expected -32, got %s\n", result);
+	else
+		printf("FAIL: Expected -32, got %s\n", result);
+	free(result);
+	printf("\n");
+	printf("-----Check 0 -----\n");
+	result = ft_itoa(0);
+	if (!strcmp("0", result))
+		printf("PASS: Expected 0, got %s\n", result);
+	else
+		printf("FAIL: Expected 0, got %s\n", result);
+	free(result);
+	printf("\n");
+}
+
+char	test_strmapi_toupper(unsigned int i, char c)
+{
+	i--;
+	return (ft_toupper(c));
+}
+
+void	test_strmapi(void)
+{
+	printf("/--------test ft_strmapi--------/\n");
+	printf("\n");
+	char	*result;
+
+	printf("-----Convert abcde123 to uppercase with toupper-----\n");
+	result = ft_strmapi("abcde123", test_strmapi_toupper);
+	if (!strcmp("ABCDE123", result))
+		printf("PASS: Expected ABCDE123, got %s\n", result);
+	else
+		printf("FAIL: Expected ABCDE123, got %s\n", result);
+	free(result);
+	printf("\n");
+}
+
+void	test_striteri_write(unsigned int i, char *c)
+{
+	i--;
+	write(1, c, 1);
+}
+
+void	test_striteri(void)
+{
+	printf("/--------test ft_strmapi--------/\n");
+	printf("\n");
+
+	printf("-----Display abcde123-----\n");
+	ft_striteri("abcde123", test_striteri_write);
+	printf("\n");
+}
+
+void	test_putchar_fd(void)
+{
+	printf("/--------test ft_putchar_fd--------/\n");
+	printf("Output x on std ouput\n");
+	ft_putchar_fd('x', 1);
+	printf("\n");
+	int	fd = open("./testputchar_fd.txt", O_WRONLY | O_CREAT, 0777);
+	ft_putchar_fd('x', fd);
+	printf("Inside /testing/testputchar_fd.txt, there should be an x\n");
+	close(fd);
+	printf("\n");
+}
+
+void	test_putstr_fd(void)
+{
+	printf("/--------test ft_putstr_fd--------/\n");
+	printf("Output abc on std ouput\n");
+	ft_putstr_fd("abc", 1);
+	printf("\n");
+	int	fd = open("./testputstr_fd.txt", O_WRONLY | O_CREAT, 0777);
+	ft_putstr_fd("abc", fd);
+	printf("Inside /testing/testputstr_fd.txt, there should be an abc\n");
+	close(fd);
+	printf("\n");
+}
+
+void	test_putendl_fd(void)
+{
+	printf("/--------test ft_putendl_fd--------/\n");
+	printf("Output abc on std ouput with newline\n");
+	ft_putendl_fd("abc", 1);
+	printf("\n");
+	int	fd = open("./testputendl_fd.txt", O_WRONLY | O_CREAT, 0777);
+	ft_putendl_fd("abc", fd);
+	printf("Inside /testing/testputendl_fd.txt, there should be an abc with newline\n");
+	close(fd);
+	printf("\n");
+
+}
+
+void	test_putnbr_fd(void)
+{
+	printf("/--------test ft_putnbr_fd--------/\n");
+	printf("Output %d on std ouput\n", INT_MAX);
+	ft_putnbr_fd(INT_MAX, 1);
+	printf("\n");
+	printf("Output -42 on std ouput\n");
+	ft_putnbr_fd(-42, 1);
+	printf("\n");
+	printf("Output 0 on std ouput\n");
+	ft_putnbr_fd(0, 1);
+	printf("\n");
+	int	fd = open("./testputnbr_fd.txt", O_WRONLY | O_CREAT, 0777);
+	ft_putnbr_fd(INT_MIN, fd);
+	printf("Inside /testing/testputnbr_fd.txt, there should be an %d with newline\n", INT_MIN);
+	close(fd);
+	printf("\n");
+
+}
+
 int	main(void)
 {
 
@@ -596,6 +873,7 @@ int	main(void)
 	test_memset();
 	test_bzero();
 	test_memmove();
+	test_memcpy();
 	test_strlcpy();
 	test_strlcat();
 	test_strchr();
@@ -616,6 +894,17 @@ int	main(void)
 	test_substr();
 	test_strjoin();
 	test_strtrim();
+	test_split();
+	test_itoa();
+	test_strmapi();
+	test_striteri();
+
+	printf("/--------Check File Descriptor--------/\n");
+	printf("\n");
+	test_putchar_fd();
+	test_putstr_fd();
+	test_putendl_fd();
+	test_putnbr_fd();
 
 	return (0);
 }

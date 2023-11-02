@@ -6,7 +6,7 @@
 #    By: llai <llai@student.42london.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 09:38:33 by llai              #+#    #+#              #
-#    Updated: 2023/11/01 20:50:13 by llai             ###   ########.fr        #
+#    Updated: 2023/11/02 21:40:31 by llai             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC = ft_isalpha \
       ft_memset \
       ft_bzero \
       ft_memmove \
+      ft_memcpy \
       ft_strlcpy \
       ft_strlcat \
       ft_toupper \
@@ -37,7 +38,15 @@ SRC = ft_isalpha \
       ft_strdup \
       ft_substr \
       ft_strjoin \
-      ft_strtrim
+      ft_strtrim \
+      ft_split	\
+      ft_itoa \
+      ft_strmapi \
+      ft_striteri \
+      ft_putchar_fd \
+      ft_putstr_fd \
+      ft_putendl_fd \
+      ft_putnbr_fd
 #BONUS_SRC = 
 SRCS = $(addsuffix .c, $(SRC))
 OBJS = $(addsuffix .o, $(SRC))

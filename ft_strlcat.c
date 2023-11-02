@@ -6,7 +6,7 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:37:23 by llai              #+#    #+#             */
-/*   Updated: 2023/10/31 17:40:15 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/02 20:42:06 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -21,7 +21,7 @@ static size_t	ft_strlen(const char *str)
 	return (count);
 }
 
-size_t ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	dst_len;
 	size_t	src_len;
@@ -34,7 +34,7 @@ size_t ft_strlcat(char *dst, const char *src, size_t size)
 	j = dst_len;
 	if (size <= dst_len)
 		return (size + src_len);
-	while  (src[i] != '\0' && j < size - 1)
+	while (src[i] != '\0' && j < size - 1)
 	{
 		dst[j] = src[i];
 		j++;

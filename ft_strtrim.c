@@ -6,12 +6,11 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:30:06 by llai              #+#    #+#             */
-/*   Updated: 2023/11/01 21:26:31 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/02 20:46:04 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
 #include "libft.h"
-#include <stdio.h>
 
 static int	is_set(char c, char const *set)
 {
@@ -37,9 +36,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	start = 0;
 	end = 0;
 	if (!ft_strlen(s1))
-		return ft_strdup("");
+		return (ft_strdup(""));
 	if (!ft_strlen(set))
-		return ft_strdup("");
+		return (ft_strdup(""));
 	while (is_set(s1[i++], set))
 		start++;
 	i = ft_strlen(s1) - 1;
