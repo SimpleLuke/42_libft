@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+ *  Description:
+ *  It converts a lower-case letter to the corresponding upper-case letter.
+ *
+ *  Return value:
+ *  The corresponding upper-case letter if there is one.
+ *  Otherwise, c is returned unchanged.
+ */
+
 int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')

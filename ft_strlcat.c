@@ -9,37 +9,35 @@
 /*   Updated: 2023/11/02 20:42:06 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
-
-static size_t	ft_strlen(const char *str)
-{
-	size_t	count;
-
-	count = 0;
-	while (*str++ != '\0')
-		count++;
-	return (count);
-}
+#include "libft.h"
+/*
+ *  Description:
+ *  It appends string src to the end of dst.
+ *  It will append at most size - strlen(dst) - 1 characters.
+ *  It will Nul-terminate, unless size is 0 or the original dst string was longer than size.
+ *
+ *  Return value:
+ *  The total length of the string they tried to create.
+ *  The initial length of dst + the length of src.
+ *
+ */
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	dst_len;
 	size_t	src_len;
 	size_t	i;
-	size_t	j;
 
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
 	i = 0;
-	j = dst_len;
 	if (size <= dst_len)
 		return (size + src_len);
-	while (src[i] != '\0' && j < size - 1)
+	while (src[i] != '\0' && (i + dst_len) < (size - 1))
 	{
-		dst[j] = src[i];
-		j++;
+		dst[dst_len + i] = src[i];
 		i++;
 	}
-	dst[j] = '\0';
+	dst[dst_len + i] = '\0';
 	return (dst_len + src_len);
 }

@@ -60,6 +60,7 @@ char	**ft_split(char const *s, char c)
 	char	**arr;
 	int		i;
 
+  i = 0;
 	arr = malloc((count_string(s, c) + 1) * sizeof(char *));
 	if (!arr)
 		return (NULL);

@@ -33,11 +33,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	dest_ptr = (char *)dest;
 	src_ptr = (const char *)src;
 	while (n-- > 0)
-	{
-		if (*dest_ptr != *src_ptr)
-			*dest_ptr = *src_ptr;
-		dest_ptr++;
-		src_ptr++;
-	}
+		*dest_ptr++ = *src_ptr++;
 	return (dest);
 }

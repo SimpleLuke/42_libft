@@ -10,6 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+ *  Description:
+ *  It converts a upper-case letter to the corresponding lower-case letter.
+ *
+ *  Return value:
+ *  The corresponding lower-case letter if there is one.
+ *  Otherwise, c is returned unchanged.
+ */
+
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')

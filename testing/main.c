@@ -388,16 +388,21 @@ void	test_strncmp(void)
 	printf("\n");
 	char	str1[] = "Hello12";
 	char	str2[] = "Hello456";
+	char	str3[] = "1Hello456";
 	int	result1;
 	int	result2;
 	int	result3;
 	int	result4;
+	int	result5;
+	int	result6;
 
 	printf("Comparing %s and %s\n", str1, str2);
 	result1 = ft_strncmp(str1, str2, 5);
 	result2 = ft_strncmp(str1, str2, 6);
 	result3 = strncmp(str1, str2, 5);
 	result4 = strncmp(str1, str2, 6);
+  result5 = ft_strncmp(str1, str3, 0);
+  result6 = strncmp(str1, str3, 0);
 
 	printf("5 bytes\n");
 	if (result1 == 0 && result1 == result3)
@@ -406,6 +411,7 @@ void	test_strncmp(void)
 		printf("FAIL: %s is greater than %s\n", str1, str2);
 	else
 		printf("FAIL: %s is less than %s\n", str1, str2);
+  printf("\n");
 	printf("6 bytes\n");
 	if (result2 < 0 && result2 == result4)
 		printf("PASS: %s is less than %s\n", str1, str2);
@@ -413,6 +419,13 @@ void	test_strncmp(void)
 		printf("FAIL: %s is greater than %s\n", str1, str2);
 	else
 		printf("FAIL: they are equal.\n");
+  printf("\n");
+	printf("0 bytes\n");
+	if (result5 == result6)
+		printf("PASS: Expected %d, got %d\n", result5, result6);
+	else
+		printf("FAIL: Expected %d, got %d\n", result5, result6);
+  printf("\n");
 }
 
 void	test_memchr(void)
@@ -455,6 +468,52 @@ void	test_memchr(void)
 	else
 		printf("FAIL: Expected NULL, got %s.\n", result2);
 	printf("\n");
+}
+
+void	test_memcmp(void)
+{
+	printf("/--------test ft_memcmp/\n");
+	printf("\n");
+	char	str1[] = "Hello12";
+	char	str2[] = "Hello456";
+	char	str3[] = "1Hello456";
+	int	result1;
+	int	result2;
+	int	result3;
+	int	result4;
+	int	result5;
+	int	result6;
+
+	printf("Comparing %s and %s\n", str1, str2);
+	result1 = ft_memcmp(str1, str2, 5);
+	result2 = ft_memcmp(str1, str2, 6);
+	result3 = memcmp(str1, str2, 5);
+	result4 = memcmp(str1, str2, 6);
+  result5 = ft_memcmp(str1, str3, 0);
+  result6 = memcmp(str1, str3, 0);
+
+	printf("5 bytes\n");
+	if (result1 == 0 && result1 == result3)
+		printf("PASS: they are equal.\n");
+	else if (result1 > 0)
+		printf("FAIL: %s is greater than %s\n", str1, str2);
+	else
+		printf("FAIL: %s is less than %s\n", str1, str2);
+  printf("\n");
+	printf("6 bytes\n");
+	if (result2 < 0 && result2 == result4)
+		printf("PASS: %s is less than %s\n", str1, str2);
+	else if (result2 > 0)
+		printf("FAIL: %s is greater than %s\n", str1, str2);
+	else
+		printf("FAIL: they are equal.\n");
+  printf("\n");
+	printf("0 bytes\n");
+	if (result5 == result6)
+		printf("PASS: Expected %d, got %d\n", result5, result6);
+	else
+		printf("FAIL: Expected %d, got %d\n", result5, result6);
+  printf("\n");
 }
 
 void	test_strnstr(void)
@@ -880,6 +939,7 @@ int	main(void)
 	test_strrchr();
 	test_strncmp();
 	test_memchr();
+  test_memcmp();
 	test_strnstr();
 	test_atoi();
 

@@ -11,6 +11,15 @@
 /* ************************************************************************** */
 #include "libft.h"
 
+/*
+ *  Description:
+ *  It allocates enough memory for nmemb elements of size bytes each
+ *  and filled with bytes of value zero.
+ *
+ *  Return value:
+ *  A pointer to the allocated memory. NULL if the memory allocation fails.
+ */
+
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;

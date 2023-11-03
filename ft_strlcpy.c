@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-static int	ft_strlen(const char *str)
-{
-	int	count;
-
-	count = 0;
-	while (*str++ != '\0')
-		count++;
-	return (count);
-}
+#include "libft.h"
+/*
+ *  Description:
+ *  It copies up to size - 1 characters from src to dst and Nul-terminating the result if size is not 0.
+ *  The Nul-terminating \0 character must be included in size.
+ *
+ *  Return value:
+ *  The total length of the string they tried to create.
+ *  The length of src.
+ *
+ */
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {

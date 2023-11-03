@@ -9,8 +9,16 @@
 /*   Updated: 2023/11/01 10:38:45 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include <stddef.h>
+/*
+ *  Description:
+ *  It locates the last occurrence of c in the string s.
+ *
+ *  Return value:
+ *  A pointer to the located character.
+ *  NULL if the character does not appear in the string.
+ */
 
 char	*ft_strrchr(const char *s, int c)
 {

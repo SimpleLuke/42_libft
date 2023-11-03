@@ -9,7 +9,18 @@
 /*   Updated: 2023/11/02 20:38:16 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
+#include "libft.h"
+/*
+ *  Description:
+ *  It copies n bytes from from memory area string src to area dest.
+ *  The memory area may overlap. The copy is always done in a non-desstructive manner.
+ *  If the dest is found within src pointer and index n,
+ *  copying will be done from back to front. Otherwise, front to back.
+ *
+ *  Return value:
+ *  A pointer to dest.
+ *
+ */
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

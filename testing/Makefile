@@ -17,7 +17,8 @@ LIBFT_PATH = "../"
 
 #$(NAME): make_libft
 $(NAME): make_libft
-	$(CC) $(CFLAGS) -DLIBBSD_OVERLAY -I/usr/include/bsd -o $(NAME) main.c -L$(LIBFT_PATH) -lft -lbsd -g
+	$(CC) $(CFLAGS) -DLIBBSD_OVERLAY -I/usr/include/bsd -o $(NAME) main.c -L$(LIBFT_PATH) -lft -g
+	#$(CC) $(CFLAGS) -DLIBBSD_OVERLAY -I/usr/include/bsd -o $(NAME) main.c -L$(LIBFT_PATH) -lft -lbsd -g
 
 make_libft:
 	make all -C $(LIBFT_PATH)

@@ -9,8 +9,16 @@
 /*   Updated: 2023/11/02 20:40:04 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
 #include "libft.h"
+
+/*
+ *  Description:
+ *  It allocateds sufficient memory for a copy of the string s,
+ *  does the copy and returns a pointer to it.
+ *
+ *  Return value:
+ *  A pointer to the new string. NULL if the memory allocation fails.
+ */
 
 char	*ft_strdup(const char *s)
 {

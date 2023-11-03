@@ -9,8 +9,16 @@
 /*   Updated: 2023/11/01 13:16:02 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include <stddef.h>
+/*
+ *  Description:
+ *  It locates the first occurrence of c (converted to an unsigned char) 
+ *  in string s with n bytes.
+ *
+ *  Return value:
+ *  A pointer to the byte located, or NULL if no such byte exists within n bytes.
+ */
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

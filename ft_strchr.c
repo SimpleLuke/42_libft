@@ -9,7 +9,16 @@
 /*   Updated: 2023/11/02 20:39:49 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
+#include "libft.h"
+
+/*
+ *  Description:
+ *  It locates the first occurrence of c in the string s.
+ *
+ *  Return value:
+ *  A pointer to the located character.
+ *  NULL if the character does not appear in the string.
+ */
 
 char	*ft_strchr(const char *s, int c)
 {

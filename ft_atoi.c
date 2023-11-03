@@ -9,7 +9,15 @@
 /*   Updated: 2023/11/02 20:24:54 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
+/*
+ *  Description:
+ *  It converts a string into an int.
+ *
+ *  Return value:
+ *  A converted int.
+ *  0 if invalid digit.
+ */
 
 static int	ft_isdigit(char c)
 {
