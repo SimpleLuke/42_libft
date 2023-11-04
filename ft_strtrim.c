@@ -9,8 +9,17 @@
 /*   Updated: 2023/11/02 20:46:04 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
 #include "libft.h"
+
+/*
+ *  Description:
+ *  It removes any characters of the set from the beginning and the end of the string s1.
+ *  The new trimmed string will be allocated with memory.
+ *
+ *  Return value:
+ *  A pointer to the new trimmed string.
+ *  NULL if the memory allocation fails.
+ */
 
 static int	is_set(char c, char const *set)
 {

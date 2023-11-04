@@ -9,8 +9,16 @@
 /*   Updated: 2023/11/02 20:39:01 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
+
+/*
+ *  Description:
+ *  It creates an array of strings by splitting the string s with the seperator c.
+ *
+ *  Return value:
+ *  A pointer to the array of strings.
+ *  NULL if the memory allocation fails.
+ */
 
 static int	count_string(char const *s, char sep)
 {

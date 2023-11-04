@@ -10,6 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+ *  Description:
+ *  It applies the function f to each character in the string s.
+ *  Passing the index as the first argument and the address of the character as second argument
+ *  in the function f.
+ *
+ *  Return value:
+ *  None.
+ */
+
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	int	i;

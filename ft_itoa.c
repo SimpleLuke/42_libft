@@ -9,8 +9,15 @@
 /*   Updated: 2023/11/02 20:36:58 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
+
+/*
+ *  Description:
+ *  It converts the integer n into a string.
+ *
+ *  Return value:
+ *  A pointer string of the integer.
+ */
 
 static int	ft_numlen(int num)
 {

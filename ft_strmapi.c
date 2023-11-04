@@ -11,6 +11,16 @@
 /* ************************************************************************** */
 #include "libft.h"
 
+/*
+ *  Description:
+ *  It applies the function f to each character in the string s.
+ *  The new string will be allocated to new memory.
+ *
+ *  Return value:
+ *  A pointer to the new string.
+ *  NULL is the memory allocation fails.
+ */
+
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	int		i;

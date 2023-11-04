@@ -11,6 +11,16 @@
 /* ************************************************************************** */
 #include "libft.h"
 
+/*
+ *  Description:
+ *  It takes a substring from the given s starting with start and ending with len characters.
+ *  The new string will be allocated with memory.
+ *
+ *  Return value:
+ *  A pointer to the new string.
+ *  NULL if the memory allocation fails.
+ */
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*ptr;

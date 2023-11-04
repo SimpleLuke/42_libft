@@ -9,17 +9,17 @@
 /*   Updated: 2023/11/02 20:41:14 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "libft.h"
 
-static int	ft_strlen(char const *str)
-{
-	int	count;
-
-	count = 0;
-	while (*str++ != '\0')
-		count++;
-	return (count);
-}
+/*
+ *  Description:
+ *  It concatenates the s1 and s2.
+ *  The new string will be allocated with memory.
+ *
+ *  Return value:
+ *  A pointer to the new concatenated string.
+ *  NULL if the memory allocation fails.
+ */
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

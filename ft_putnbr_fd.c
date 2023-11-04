@@ -11,6 +11,14 @@
 /* ************************************************************************** */
 #include "libft.h"
 
+/*
+ *  Description:
+ *  It writes the integer 'n' to the given file descriptor.
+ *
+ *  Return value:
+ *  None.
+ */
+
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (fd < 0)

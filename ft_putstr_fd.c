@@ -11,6 +11,14 @@
 /* ************************************************************************** */
 #include "libft.h"
 
+/*
+ *  Description:
+ *  It writes the string 's' to the given file descriptor.
+ *
+ *  Return value:
+ *  None.
+ */
+
 void	ft_putstr_fd(char *s, int fd)
 {
 	if (fd < 0)
