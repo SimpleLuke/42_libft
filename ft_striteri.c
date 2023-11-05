@@ -6,14 +6,15 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 16:37:15 by llai              #+#    #+#             */
-/*   Updated: 2023/11/02 16:46:07 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/05 18:15:13 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
  *  Description:
  *  It applies the function f to each character in the string s.
- *  Passing the index as the first argument and the address of the character as second argument
+ *  Passing the index as the first argument 
+ *  and the address of the character as second argument
  *  in the function f.
  *
  *  Return value:

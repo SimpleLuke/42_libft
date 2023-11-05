@@ -6,14 +6,15 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:30:06 by llai              #+#    #+#             */
-/*   Updated: 2023/11/02 20:46:04 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/05 18:14:26 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 /*
  *  Description:
- *  It removes any characters of the set from the beginning and the end of the string s1.
+ *  It removes any characters of the set 
+ *  from the beginning and the end of the string s1.
  *  The new trimmed string will be allocated with memory.
  *
  *  Return value:

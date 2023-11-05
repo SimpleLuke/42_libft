@@ -6,7 +6,7 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:16:43 by llai              #+#    #+#             */
-/*   Updated: 2023/11/02 20:24:54 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/05 22:02:23 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	while (nptr[i] && (nptr[i] == ' ' || nptr[i] == '\t'
 			|| nptr[i] == '\n' || nptr[i] == '\v'
-			|| nptr[i] == '\v' || nptr[i] == '\f'))
+			|| nptr[i] == '\r' || nptr[i] == '\f'))
 		i++;
 	if (nptr[i] == '+')
 		i++;

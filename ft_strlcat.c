@@ -6,15 +6,16 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:37:23 by llai              #+#    #+#             */
-/*   Updated: 2023/11/02 20:42:06 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/05 18:16:00 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 /*
  *  Description:
  *  It appends string src to the end of dst.
- *  It will append at most size - strlen(dst) - 1 characters.
- *  It will Nul-terminate, unless size is 0 or the original dst string was longer than size.
+ *  At most size - strlen(dst) - 1 characters.
+ *  It will Nul-terminate, unless size is 0 
+ *  or the original dst string was longer than size.
  *
  *  Return value:
  *  The total length of the string they tried to create.

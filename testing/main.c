@@ -6,7 +6,7 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 09:40:10 by llai              #+#    #+#             */
-/*   Updated: 2023/11/02 21:42:08 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/05 21:50:21 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -707,9 +707,9 @@ void	test_strtrim(void)
 	printf("Trim lllhellollll with hel\n");
 	result = ft_strtrim("lllhellolll", "hel");
 	if (!strcmp(result, "o"))
-		printf("PASS: Expected hello, got %s\n", result);
+		printf("PASS: Expected o, got %s\n", result);
 	else
-		printf("FAIL: Expected hello, got %s\n", result);
+		printf("FAIL: Expected o, got %s\n", result);
 	free(result);
 	printf("Trim lllhellollll with hello\n");
 	result = ft_strtrim("lllhellolll", "hello");

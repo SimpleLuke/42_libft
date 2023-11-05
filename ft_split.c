@@ -6,14 +6,15 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:34:01 by llai              #+#    #+#             */
-/*   Updated: 2023/11/02 20:39:01 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/05 18:16:33 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 /*
  *  Description:
- *  It creates an array of strings by splitting the string s with the seperator c.
+ *  It creates an array of strings 
+ *  by splitting the string s with the seperator c.
  *
  *  Return value:
  *  A pointer to the array of strings.
@@ -68,7 +69,7 @@ char	**ft_split(char const *s, char c)
 	char	**arr;
 	int		i;
 
-  i = 0;
+	i = 0;
 	arr = malloc((count_string(s, c) + 1) * sizeof(char *));
 	if (!arr)
 		return (NULL);

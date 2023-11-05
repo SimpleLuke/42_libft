@@ -6,14 +6,15 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 19:28:05 by llai              #+#    #+#             */
-/*   Updated: 2023/11/01 21:37:04 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/05 18:14:47 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 /*
  *  Description:
- *  It takes a substring from the given s starting with start and ending with len characters.
+ *  It takes a substring from the given s 
+ *  starting with start and ending with len characters.
  *  The new string will be allocated with memory.
  *
  *  Return value:

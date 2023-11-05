@@ -6,14 +6,15 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:22:20 by llai              #+#    #+#             */
-/*   Updated: 2023/11/02 20:42:52 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/05 18:16:15 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 /*
  *  Description:
- *  It copies up to size - 1 characters from src to dst and Nul-terminating the result if size is not 0.
+ *  It copies up to size - 1 characters from src to dst 
+ *  and Nul-terminating the result if size is not 0.
  *  The Nul-terminating \0 character must be included in size.
  *
  *  Return value:

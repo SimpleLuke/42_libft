@@ -6,7 +6,7 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 11:12:33 by llai              #+#    #+#             */
-/*   Updated: 2023/11/01 11:31:46 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/05 18:06:51 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -22,8 +22,8 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-  if (n == 0)
-    return (0);
+	if (n == 0)
+		return (0);
 	while (*s1 != '\0' && *s1 == *s2 && n > 1)
 	{
 		s1++;
