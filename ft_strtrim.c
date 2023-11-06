@@ -48,7 +48,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!ft_strlen(s1))
 		return (ft_strdup(""));
 	if (!ft_strlen(set))
-		return (ft_strdup(""));
+		return (ft_strdup(s1));
 	while (is_set(s1[i++], set))
 		start++;
 	i = ft_strlen(s1) - 1;

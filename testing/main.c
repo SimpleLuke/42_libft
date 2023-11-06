@@ -619,6 +619,15 @@ void	test_calloc(void)
 	}
 	free(ptr);
 	free(ptr2);
+	printf("CALLOC INT_MIN\n");
+	ptr = ft_calloc(INT_MIN, INT_MIN);
+	ptr2 = calloc(INT_MIN, INT_MIN);
+	if (ptr == ptr2)
+		printf("YES\n");
+	else
+		printf("NO\n");
+	free(ptr);
+	free(ptr2);
 	printf("\n");
 }
 
@@ -692,10 +701,10 @@ void	test_strtrim(void)
 	free(result);
 	printf("Trim abc with \"\"\n");
 	result = ft_strtrim("abc", "");
-	if (!strcmp(result, ""))
-		printf("PASS: Expected \"\", got %s\n", result);
+	if (!strcmp(result, "abc"))
+		printf("PASS: Expected abc, got %s\n", result);
 	else
-		printf("FAIL: Expected \"\", got %s\n", result);
+		printf("FAIL: Expected abc, got %s\n", result);
 	free(result);
 	printf("Trim lllhellollll with l\n");
 	result = ft_strtrim("lllhellolll", "l");
