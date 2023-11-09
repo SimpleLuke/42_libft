@@ -6,7 +6,7 @@
 /*   By: llai <llai@student.42london.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:39:55 by llai              #+#    #+#             */
-/*   Updated: 2023/11/02 20:36:58 by llai             ###   ########.fr       */
+/*   Updated: 2023/11/07 09:13:13 by llai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -19,34 +19,29 @@
  *  A pointer string of the integer.
  */
 
-static int	ft_numlen(int num)
+static size_t	ft_numlen(long num)
 {
-	int	count;
+	size_t	count;
 
 	count = 0;
-	if (num == INT_MIN)
-	{
-		count += 2;
-		num /= -10;
-	}
-	else if (num < 0)
+	if (num == 0)
+		return (1);
+	if (num < 0)
 	{
 		count++;
 		num = -num;
 	}
-	if (num == 0)
-		count++;
 	while (num > 0)
 	{
-		num /= 10;
 		count++;
+		num /= 10;
 	}
 	return (count);
 }
 
-static char	*ft_num_to_str(int len, char *result, long n)
+static char	*ft_num_to_str(size_t len, char *result, long n)
 {
-	result = malloc((len + 1) * sizeof(char));
+	result = ft_calloc((len + 1), sizeof(char));
 	if (!result)
 		return (NULL);
 	if (n < 0)
@@ -55,9 +50,10 @@ static char	*ft_num_to_str(int len, char *result, long n)
 		n = -n;
 	}
 	result[len] = '\0';
-	while (len - 1)
+	len--;
+	while (len)
 	{
-		result[len - 1] = (n % 10) + '0';
+		result[len] = (n % 10) + '0';
 		n /= 10;
 		len--;
 	}
@@ -68,7 +64,7 @@ static char	*ft_num_to_str(int len, char *result, long n)
 
 char	*ft_itoa(int n)
 {
-	int		len;
+	size_t	len;
 	long	num;
 	char	*result;
 
@@ -76,5 +72,7 @@ char	*ft_itoa(int n)
 	len = ft_numlen(num);
 	result = NULL;
 	result = ft_num_to_str(len, result, num);
+	if (!result)
+		return (NULL);
 	return (result);
 }
