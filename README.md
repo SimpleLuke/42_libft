@@ -59,13 +59,13 @@ Functions related to strings:
 - ft_striteri
 
 Functions related to memory:
-- ft_calloc
-- ft_memset
 - ft_bzero
+- ft_memset
 - ft_memcpy
 - ft_memmove
 - ft_memchr
 - ft_memcmp
+- ft_calloc
 - ft_strdup
 
 Functions for numbers:
@@ -82,9 +82,9 @@ Functions related to output:
 Functions related to linked list:
 - ft_lstnew
 - ft_lstadd_front
+- ft_lstadd_back
 - ft_lstsize
 - ft_lstlast
-- ft_lstadd_back
 - ft_lstdelone
 - ft_lstclear
 - ft_lstiter
