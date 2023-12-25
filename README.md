@@ -20,7 +20,7 @@ Learning how the standard library functions work by coding the functions from sc
       <a href="#usage">Usage</a>
     </li>
     <li><a href="#mandatory-functions">Mandatory Functions</a></li>
-    <li><a href="#bonus-functions">Mandatory Functions</a></li>
+    <li><a href="#bonus-functions">Bonus Functions</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -95,5 +95,3 @@ Functions related to linked list:
 ## Contact
 
 - Luke Lai - [LinkedIn](https://www.linkedin.com/in/luke-lai-309a3522b/) - lukelai.dev@gmail.com
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
