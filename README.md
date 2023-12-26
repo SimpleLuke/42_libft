@@ -19,8 +19,7 @@ Learning how the standard library functions work by coding the functions from sc
     <li>
       <a href="#usage">Usage</a>
     </li>
-    <li><a href="#mandatory-functions">Mandatory Functions</a></li>
-    <li><a href="#bonus-functions">Bonus Functions</a></li>
+    <li><a href="#functions">Functions</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -28,11 +27,9 @@ Learning how the standard library functions work by coding the functions from sc
 ## Usage
 ```
 `make` to compile mandatory functions.
-
-`make bonus` to compile with bonus functions.
 ```
 
-## Mandatory Functions
+## Functions
 
 Functions related to characters:
 - ft_isalpha
@@ -78,7 +75,6 @@ Functions related to output:
 - ft_putendl_fd
 - ft_putnbr_fd
 
-## Bonus Functions
 Functions related to linked list:
 - ft_lstnew
 - ft_lstadd_front
