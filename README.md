@@ -4,11 +4,6 @@
   <img src="https://github.com/SimpleLuke/libft/assets/89473016/82ff1559-3fd3-425b-90b1-ad650ba85c08" />
 </p>
 
-## About The Project
-This first 42 school's project is about rewriting useful functions in the C library. 
-
-Learning how the standard library functions work by coding the functions from scratch and creating a personal static library.
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -23,6 +18,11 @@ Learning how the standard library functions work by coding the functions from sc
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
+
+## About The Project
+This first 42 school's project is about rewriting useful functions in the C library. 
+
+Learning how the standard library functions work by coding the functions from scratch and creating a personal static library.
 
 ## Usage
 ```
@@ -65,7 +65,7 @@ Functions related to memory:
 - ft_calloc
 - ft_strdup
 
-Functions for numbers:
+Functions related to numbers:
 - ft_atoi
 - ft_itoa
 
