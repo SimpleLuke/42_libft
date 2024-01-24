@@ -20,18 +20,19 @@
  * 	None.
  */
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new_node)
 {
 	t_list	*temp;
 
-	if (!new)
+	if (!new_node)
 		return ;
 	if (!*lst)
 	{
-		*lst = new;
+		*lst = new_node;
 		return ;
 	}
 	temp = ft_lstlast(*lst);
-	temp -> next = new;
+	temp -> next = new_node;
 	return ;
 }
+
