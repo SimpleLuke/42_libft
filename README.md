@@ -26,7 +26,7 @@ Learning how the standard library functions work by coding the functions from sc
 
 ## Usage
 ```
-`make` to compile mandatory functions.
+`make` to compile functions into a static library.
 ```
 
 ## Functions
