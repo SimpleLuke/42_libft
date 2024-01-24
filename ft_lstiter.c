@@ -22,7 +22,7 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!lst)
+	if (!f || !lst)
 		return ;
 	while (lst)
 	{
@@ -30,3 +30,4 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		lst = lst -> next;
 	}
 }
+
